@@ -1,8 +1,32 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Bem-Vindo";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Equação de 2º Grau</h1>
+    <h4>Determinação das raízes de uma equação de 2ºgrau</h4>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<form>
+
+<div>
+    <!--Este é um comentário que vai ser enviado para o browser-->
+    <p>
+       
+        @*
+            Esta é a linha de comentário do Razor que é só visível no V.Studio
+            Nota:
+            id-> identificação do objeti a ser lida no js (cliente)
+            Name-> identificação do objeto a ser lida no servidor
+        *@
+        
+        Escreva os coefecientes de uma equação
+        <br /> A: <input type="text" name="A" /> 
+        <br /> B: <input type="text" name="B" />
+        <br /> C: <input type="text" name="C"/>
+        <br /> <input type="submit" value="Calcular" />
+    </p>
+
+</div>
+</form>
