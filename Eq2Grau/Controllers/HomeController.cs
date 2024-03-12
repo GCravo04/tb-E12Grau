@@ -51,13 +51,15 @@ namespace Eq2Grau.Controllers
 
             // vars. auxiliares
             double auxA = 0, auxB = 0, auxC = 0;
+            ViewBag.Mensagem = ""; //Os viewBag APENAS transportam conteúdos do controller para a view sentido unico
+
 
 
             // 1.
             if (string.IsNullOrWhiteSpace(A) || string.IsNullOrWhiteSpace(B) || string.IsNullOrWhiteSpace(C))
             {
                 // enviar mensagem para o utilizador
-
+                ViewBag.Mensagem = "Os Parametros A,B  e C são de preenchimento obrigatório";
 
                 // devolver controlo à View
                 return View();
@@ -67,6 +69,7 @@ namespace Eq2Grau.Controllers
             if (!double.TryParse(A, out auxA))
             {
                 // o A não é número.
+                ViewBag.Mensagem = "O parametro A tem de ser um número";
                 // enviar mensagem para o utilizador
 
 
@@ -78,6 +81,7 @@ namespace Eq2Grau.Controllers
             if (!double.TryParse(B, out auxB))
             {
                 // o B não é número.
+                ViewBag.Mensagem = "O parametro B tem de ser um número";
                 // enviar mensagem para o utilizador
 
 
@@ -89,6 +93,7 @@ namespace Eq2Grau.Controllers
             if (!double.TryParse(C, out auxC))
             {
                 // o C não é número.
+                ViewBag.Mensagem = "O parametro C tem de ser um número";
                 // enviar mensagem para o utilizador
 
 
@@ -101,6 +106,7 @@ namespace Eq2Grau.Controllers
             if (auxA == 0)
             {
                 // o A é ZERO.
+                ViewBag.Mensagem = "O parametro A  não pode ser  0 (zero)";
                 // enviar mensagem para o utilizador
 
 
@@ -117,6 +123,9 @@ namespace Eq2Grau.Controllers
                 string x1 = Math.Round((-auxB + Math.Sqrt(delta)) / 2 / auxA, 2) + "";
                 string x2 = Math.Round((-auxB - Math.Sqrt(delta)) / 2 / auxA, 2) + "";
                 // enviar mensagem para o utilizador
+                ViewBag.Mensagem = "A equação tem duas raizes reais distintas";
+                ViewBag.X1 = x1;
+                ViewBag.X2 = x2;    
 
 
                 // devolver controlo à View
@@ -128,6 +137,9 @@ namespace Eq2Grau.Controllers
                 string x = Math.Round(-auxB / 2 / auxA, 2) + "";
 
                 // enviar mensagem para o utilizador
+                ViewBag.Mensagem = "A equação tem duas raizes reais mas iguais";
+                ViewBag.X1 = x;
+           
 
 
                 // devolver controlo à View
@@ -139,6 +151,9 @@ namespace Eq2Grau.Controllers
                 string x1 = Math.Round((-auxB) / 2 / auxA, 2) + " + " + Math.Round(Math.Sqrt(-delta) / 2 / auxA, 2) + " i";
                 string x2 = Math.Round((-auxB) / 2 / auxA, 2) + " - " + Math.Round(Math.Sqrt(-delta) / 2 / auxA, 2) + " i";
                 // enviar mensagem para o utilizador
+                ViewBag.Mensagem = "A equação tem duas complexas conjugadas";
+                ViewBag.X1 = x1;
+                ViewBag.X2 = x2;
 
 
                 // devolver controlo à View

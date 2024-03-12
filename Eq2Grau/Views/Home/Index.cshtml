@@ -1,4 +1,5 @@
 ﻿@{
+    
     ViewData["Title"] = "Bem-Vindo";
 }
 
@@ -30,3 +31,12 @@
 
 </div>
 </form>
+
+
+<div> <!-- Qualquer codigo que comece por & É HTML-->
+    &nbsp;<br />
+    @* Vamos recuperar as mensagens enviadas pelo controller*@
+    @ViewBag.Mensagem <br />
+    @ViewBag.X1<br />
+    @ViewBag.X2
+</div>
